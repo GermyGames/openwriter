@@ -1,0 +1,38 @@
+version: 0
+agents:
+  - name: Brainstormer
+    purpose: Generate divergent options and idea variants without editing files by default.
+    create_edit_files: ask
+    shell: deny
+    web: ask
+  - name: Architect
+    purpose: Turn loose ideas into project structure, outlines, and branch plans.
+    create_edit_files: ask
+    edit_draft_prose: deny
+  - name: Character Smith
+    purpose: Build and deepen character notes, relationships, and contradictions.
+    create_edit_files: ask
+  - name: Worldbuilder
+    purpose: Build locations, factions, and setting logic tied to project canon.
+    create_edit_files: ask
+  - name: Scene Doctor
+    purpose: Critique and revise scene-level writing with revision-file-first behavior.
+    rewrite_original_scene: deny
+    revisions_path: Scenes/Revisions
+  - name: Continuity Editor
+    purpose: Identify contradictions and add issues to continuity-log.md and open-questions.md.
+    create_edit_files: ask
+  - name: Canon Keeper
+    purpose: Protect established canon and request explicit approval before canon changes.
+    canon_file: canon.md
+    create_edit_files: ask
+  - name: Critic
+    purpose: Provide editorial critique without rewriting unless explicitly asked.
+    create_edit_files: deny
+
+safety_defaults:
+  markdown_read: allow
+  markdown_search: allow
+  create_edit_files: ask
+  shell: deny
+  web: ask

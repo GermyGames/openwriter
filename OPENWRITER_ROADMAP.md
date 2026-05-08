@@ -715,6 +715,23 @@ Useful for:
 * branches become cluttered
 * agent writes too much too soon
 
+### Milestone 1 Implementation (Completed: May 8, 2026)
+
+Implemented assets live in `openwriter-starter/`:
+
+* `scripts/scaffold-vault.sh`
+  * scaffolds starter vault structure in any Obsidian vault path
+  * creates required project notes and template notes with frontmatter
+* `agents/writing-agents.yaml`
+  * defines Brainstormer, Architect, Character Smith, Worldbuilder, Scene Doctor, Continuity Editor, Canon Keeper, and Critic
+  * includes safe default permissions for Markdown-first workflows
+* `commands/command-pack-v0.md`
+  * includes premise expansion, character/location/faction generation, branch creation, scene critique, scene revision, and continuity check commands
+* `sample-vault/`
+  * contains a scaffolded `Example Project` plus representative scene and character notes
+* `README.md`
+  * documents setup flow, project selection, wikilink conventions, branch naming, and manual approval workflow
+
 ---
 
 ## Milestone 2: Vault-Aware Behaviors
