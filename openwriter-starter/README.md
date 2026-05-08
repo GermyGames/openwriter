@@ -43,3 +43,20 @@ The script creates:
 - `agents/writing-agents.yaml`: Brainstormer, Architect, Character Smith, Worldbuilder, Scene Doctor, Continuity Editor, Canon Keeper, Critic.
 - `commands/command-pack-v0.md`: starter command prompts.
 - `sample-vault/`: sample populated project vault.
+
+## Milestone 2 Vault-Aware Tools
+
+`openwriter-starter/scripts/vault-tools.ts` provides prototype helpers for vault-aware behavior:
+
+- `vaultIndex(root)` indexes notes by type, reports broken wikilinks, duplicate titles, and missing frontmatter.
+- `appendToSection(file, heading, content)` appends content under a heading without rewriting full notes.
+- `updateFrontmatter(file, updates)` updates YAML frontmatter keys while preserving body content.
+- `findRelatedNotes(root, targetPath)` discovers related notes by backlinks/outlinks and shared project metadata.
+- `projectSummary(root)` generates a compact summary for project context.
+
+Run tests from this directory:
+
+```bash
+cd openwriter-starter/scripts
+bun test vault-tools.test.ts
+```
