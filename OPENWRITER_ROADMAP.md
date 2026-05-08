@@ -588,6 +588,81 @@ Useful for:
 * unclear naming and branding
 * accidentally preserving unsafe coding defaults
 
+
+### Milestone 0 Implementation (Completed: May 8, 2026)
+
+#### Project Name Decision
+
+* **Name:** OpenWriter
+* **Positioning:** “OpenWriter is a writing-focused OpenCode distribution for Obsidian-style Markdown vault workflows.”
+
+#### Repo Strategy Document
+
+* **Strategy:** maintain a thin distribution on top of upstream OpenCode.
+* **Branch model:**
+  * track upstream from `dev`
+  * keep OpenWriter-specific changes isolated to config, prompts, commands, permissions, templates, and documentation
+  * avoid deep runtime forks unless required by validated workflow gaps
+* **Customization order:**
+  1. configuration-only overrides
+  2. prompt + command packs
+  3. plugin/tool extensions
+  4. runtime internals only when prior layers cannot satisfy requirements
+
+#### Upstream Baseline
+
+* **Baseline ref:** `dev` branch in this repository at Milestone 0 completion date (**May 8, 2026**).
+* **Policy:** when introducing OpenWriter-specific code, reference diffs against `dev`/`origin/dev` rather than `main`.
+
+#### Initial Product Principles
+
+1. Vault-first: Markdown files are the system of record.
+2. Local-first: no hosted backend required for core workflow.
+3. Human-in-the-loop: propose edits and require user approval before destructive changes.
+4. Structured creativity: prioritize linked notes, frontmatter, and branch folders over long chat-only output.
+5. Safe defaults: writing-focused permissions should minimize shell and broad filesystem exposure.
+
+#### Initial Vault Convention
+
+* Use the recommended vault structure in this roadmap as the default scaffold.
+* Require frontmatter `type` for core note categories.
+* Keep branch outputs under visible project `Branches/` folders.
+* Prefer append/update-in-place for logs (`open-questions.md`, `continuity-log.md`) over full-file rewrites.
+
+#### Initial Permission Policy
+
+* **Default mode:** deny shell command execution.
+* **Filesystem scope:** allow only project vault read/write paths required for note operations.
+* **Change safety:** require explicit approval for destructive operations (overwrite, delete, move).
+* **Tooling scope:** prioritize Markdown-aware operations before generic file mutations.
+
+#### “Do Not Build Yet” List
+
+* custom editor UI
+* hosted sync/collaboration service
+* proprietary project database
+* full Obsidian plugin integration
+* rich visual planning interfaces (corkboard/timeline)
+* publishing pipelines beyond Markdown export
+
+#### Milestone 0 Engineering Verification Checklist
+
+* [x] clone/fork OpenCode
+* [x] identify extension points for agents, commands, permissions, plugins, and custom tools
+* [x] verify local launch flow
+* [x] verify config override flow
+* [x] verify command pack loading
+* [x] verify whether a no-shell writing mode can be enforced cleanly
+
+#### Milestone 0 Acceptance Mapping
+
+* [x] project can be launched locally
+* [x] default writing config can be loaded
+* [x] at least one custom writing command can run
+* [x] shell access is denied by default
+* [x] Markdown read/edit permissions can be constrained
+* [x] project direction is documented
+
 ---
 
 ## Milestone 1: Starter Vault and Writing Agent Pack
